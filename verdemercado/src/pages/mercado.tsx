@@ -1,11 +1,10 @@
-import React from "react";
-import ReactDOM from 'react-dom/client';
-import "../assets/css/index.css"
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/css/mercado.css';
 
-
-export default function Index() {
+function MercadoVerde() {
   return (
-    <>
+    <div>
       <header className="header-bg">
         <div className="header">
           <a href="./index.html"><img src="assets/img/Group 1.png" alt="Mercado Verde" /></a>
@@ -21,6 +20,7 @@ export default function Index() {
         </div>
       </header>
 
+      {/* Carousel */}
       <div className="carrossel">
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
@@ -45,54 +45,66 @@ export default function Index() {
         </div>
       </div>
 
-      <h1><span>vamos</span> começar ;</h1>
-      <p className="texto1">Publique seu lance como um comprador registrado ou crie sua oferta de safra como um vendedor verificado pela plataforma.</p>
-
-      <div className="venda-geral">
-        <div className="vendas">
-          <img src="assets/img/Group 7.png" alt="inciar compra" />
-          <p className="linha1">Comunique ao mercado o que você está procurando e obtenha reações rápidas de agricultores interessados.</p>
-          <br />
-          <a className="compras" href="./mercado.html"><button type="submit">QUERO COMPRAR</button></a>
+      {/* Painel de Ofertas */}
+      <div className="painel">
+        <h1 className="painel-hover">PAINEL DE OFERTAS</h1>
+      </div>
+      <div className="painel-ofertas">
+        {/* Oferta 1 */}
+        <div className="ofertas">
+          <img className="img1" src="assets/img/Group 22.png" alt="" />
+          <div className="texto-ofertas">
+            <h2>Arroz</h2>
+            <h3>Produção orgânica</h3>
+            <h4>vendedor: ONG Dois Corações - Agricultura Familiar</h4>
+          </div>
+          <form>
+            <div className="form-row align-items-center">
+              <div className="col-auto my-1">
+                <label className="mr-sm-2 sr-only" htmlFor="inlineFormCustomSelect">Preferência</label>
+                <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <option >Qtd...</option>
+                  <option value="1">1kg</option>
+                  <option value="2">2kg</option>
+                  <option value="3">3kg</option>
+                </select>
+              </div>
+              <div className="col-auto my-1">
+                <button type="submit" className="botao-oferta">
+                  <a className="aoferta" href="pagamento.html">Comprar</a>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div className="vendas">
-          <img src="assets/img/Group 8.png" alt="inciar venda" />
-          <p className="linha1">Publique ofertas para a safra que deseja vender e obtenha acesso imediato a compradores com crédito verificado.</p>
-          <br />
-          <a className="compras" href="./mercado.html"><button type="submit">QUERO VENDER</button></a>
-        </div>
+        {/* Outras Ofertas (repita conforme necessário) */}
+        {/* ... */}
       </div>
 
-      <div className="banner2">
-        <img src="assets/img/Group 6.png" alt="Preços e Valores" />
-      </div>
-      <div className="tutorial-titulo">
-        <h2>Como funciona?</h2>
-        <h3>Acompanhe nosso passo-a-passo e assista ao nosso vídeo demonstrativo:</h3>
-      </div>
-      <br />
-      <br />
-      <div className="tutorial">
-        <div className="tutorial-lista">
-          <ol>
-            <li>Inscreva-se na plataforma</li>
-            <li>Crie sua oferta ou lance</li>
-            <li>Defina uma quantidade e preço</li>
-            <li>Forneça-nos características e detalhes da cultura</li>
-            <li>Publique sua oferta de vendedor ou lance de comprador</li>
-            <li>Mantenha-se atualizado por e-mail ou central de notificações</li>
-          </ol>
-        </div>
-        <div className="tutorial-img">
-          <iframe width="500" height="290" src="https://www.youtube.com/embed/q8desBqlXcA?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        </div>
-      </div>
+      {/* Paginação */}
+      <nav aria-label="Navegação de página exemplo">
+        <ul className="pagination justify-content-center">
+          <li className="page-item disabled">
+            <a className="page-link" href="#" tabIndex={-1}>Anterior</a>
+          </li>
+          <li className="page-item"><a className="page-link" href="#">1</a></li>
+          <li className="page-item"><a className="page-link" href="#">2</a></li>
+          <li className="page-item">
+            <a className="page-link" href="#">Próximo</a>
+          </li>
+        </ul>
+      </nav>
+
+      {/* Suporte */}
       <div className="suporte">
-        <a href="mailto:mercado_verde@mercadoverde.com"><button className="suporte1" type="submit"><img src="assets/img/Group 20.png" alt="SUPORTE" /></button></a>
+        <a href="mailto:mercado_verde@mercadoverde.com">
+          <button className="suporte1" type="submit">
+            <img src="assets/img/Group 20.png" alt="SUPORTE" />
+          </button>
+        </a>
       </div>
-      <br />
-      <br />
-      <br />
+
+      {/* Rodapé */}
       <footer className="footer-bg">
         <div className="footer">
           <div>
@@ -133,7 +145,8 @@ export default function Index() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
+export default MercadoVerde;
