@@ -7,6 +7,6 @@ import Pagamento from './pages/pagamento.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Pagamento /> {/* Rendering the Index component */}
+    <MercadoVerde /> {/* Rendering the Index component */}
   </React.StrictMode>
 );
