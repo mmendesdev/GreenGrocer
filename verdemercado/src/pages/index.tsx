@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
+import { Link } from "react-router-dom";
+
 import "../assets/css/index.css"
 
 
@@ -8,14 +10,14 @@ export default function Index() {
     <>
       <header className="header-bg">
         <div className="header">
-          <a href="./index.html"><img src="assets/img/Group 1.png" alt="Mercado Verde" /></a>
+          <Link to='/'><img src="assets/img/Group 1.png" alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
-              <li><a href="./index.html">HOME</a></li>
-              <li><a href="./mercado.html">MERCADO</a></li>
-              <li><a href="./minha_conta.html">MINHA CONTA</a></li>
-              <li><a href="./login.html"><img src="assets/img/Vector.svg" alt="Entrar" /></a></li>
-              <li><a href="pagamento.html"><img src="assets/img/Group 2.png" alt="Carrinho de Compra" /></a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/mercado">Mercado</Link></li>
+              <li><Link to="/conta">Minha conta</Link></li>
+              <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
+              <li><Link to="/pagamento"><img src="assets/img/Group 2.png" alt="Carrinho de Compra" /></Link></li>
             </ul>
           </nav>
         </div>
