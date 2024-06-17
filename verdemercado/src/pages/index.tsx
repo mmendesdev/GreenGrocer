@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
 import { Link } from "react-router-dom";
+import  Group1 from "./img/Group 1.png";
 
 import "../assets/css/index.css"
 
@@ -10,14 +11,15 @@ export default function Index() {
     <>
       <header className="header-bg">
         <div className="header">
-          <Link to='/'><img src="assets/img/Group 1.png" alt="Mercado Verde" /></Link>
+          // colocar as imagens desse jeito que está abaixo, tem que importar também
+          <Link to='/'><img src={Group1} alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/mercado">Mercado</Link></li>
               <li><Link to="/conta">Minha conta</Link></li>
               <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
-              <li><Link to="/pagamento"><img src="assets/img/Group 2.png" alt="Carrinho de Compra" /></Link></li>
+              <li><Link to="/pagamento"><img src="img/Group 2.png" alt="Carrinho de Compra" /></Link></li>
             </ul>
           </nav>
         </div>

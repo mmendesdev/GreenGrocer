@@ -8,7 +8,7 @@ function MercadoVerde() {
     <div>
       <header className="header-bg">
         <div className="header">
-          <Link to='/'><img src="assets/img/Group 1.png" alt="Mercado Verde" /></Link>
+          <Link to='/'><img src="img/Group 1.png" alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
             <li><Link to="/">Home</Link></li>
