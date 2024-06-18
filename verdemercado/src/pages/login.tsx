@@ -3,6 +3,8 @@ import '../assets/css/login.css';
 import { Link } from 'react-router-dom';
 import { database } from '../firebaseConfig'; // Importando a configuração do Firebase
 import { ref, set } from "firebase/database";
+import  Group1 from "./img/Group 1.png";
+import  Group2 from "./img/Group 2.png";
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -48,14 +50,14 @@ const App = () => {
     <div>
       <header className="header-bg">
         <div className="header">
-          <Link to='/'><img src="assets/img/Group 1.png" alt="Mercado Verde" /></Link>
+          <Link to='/'><img src={Group1} alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/mercado">Mercado</Link></li>
               <li><Link to="/conta">Minha conta</Link></li>
               <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
-              <li><Link to="/pagamento"><img src="assets/img/Group 2.png" alt="Carrinho de Compra" /></Link></li>
+              <li><Link to="/pagamento"><img src={Group2} alt="Carrinho de Compra" /></Link></li>
             </ul>
           </nav>
         </div>
