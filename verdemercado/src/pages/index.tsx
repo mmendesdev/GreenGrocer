@@ -23,7 +23,6 @@ export default function Index() {
     <>
       <header className="header-bg">
         <div className="header">
-          //colocar as imagens desse jeito que está abaixo, tem que importar também
           <Link to='/'><img src={Group1} alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
