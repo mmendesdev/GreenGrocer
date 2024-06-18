@@ -2,7 +2,19 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 import { Link } from "react-router-dom";
 import  Group1 from "./img/Group 1.png";
-
+import  Group2 from "./img/Group 2.png";
+import  Group6 from "./img/Group 6.png";
+import  Group7 from "./img/Group 7.png";
+import  Group8 from "./img/Group 8.png";
+import  Group19 from "./img/Group 19.png";
+import  Group20 from "./img/Group 20.png";
+import  Vector from "./img/Vector.svg";
+import  Carrossel1 from "./img/Igor carrossel_1.png";
+import  Carrossel2 from "./img/Igor carrossel_2.png";
+import  Carrossel3 from "./img/Igor carrossel_3.png";
+import Line2 from "./img/Line 2.png";
+import Vector1 from "./img/Vector1.png";
+import Vector2 from "./img/Vector2.png";
 import "../assets/css/index.css"
 
 
@@ -11,15 +23,15 @@ export default function Index() {
     <>
       <header className="header-bg">
         <div className="header">
-          // colocar as imagens desse jeito que está abaixo, tem que importar também
+          //colocar as imagens desse jeito que está abaixo, tem que importar também
           <Link to='/'><img src={Group1} alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/mercado">Mercado</Link></li>
               <li><Link to="/conta">Minha conta</Link></li>
-              <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
-              <li><Link to="/pagamento"><img src="img/Group 2.png" alt="Carrinho de Compra" /></Link></li>
+              <li><Link to="/login"><img src={Vector} alt="Entrar" /></Link></li>
+              <li><Link to="/pagamento"><img src={Group2} alt="Carrinho de Compra" /></Link></li>
             </ul>
           </nav>
         </div>
@@ -29,13 +41,13 @@ export default function Index() {
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src="assets/img/Igor carrossel_1.png" alt="Primeiro Slide" />
+              <img className="d-block w-100" src={Carrossel1} alt="Primeiro Slide" />
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src="assets/img/Igor carrossel_2.png" alt="Segundo Slide" />
+              <img className="d-block w-100" src={Carrossel2} alt="Segundo Slide" />
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src="assets/img/Igor carrossel_3.png" alt="Terceiro Slide" />
+              <img className="d-block w-100" src={Carrossel3} alt="Terceiro Slide" />
             </div>
           </div>
           <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -54,13 +66,13 @@ export default function Index() {
 
       <div className="venda-geral">
         <div className="vendas">
-          <img src="assets/img/Group 7.png" alt="inciar compra" />
+          <img src={Group7} alt="inciar compra" />
           <p className="linha1">Comunique ao mercado o que você está procurando e obtenha reações rápidas de agricultores interessados.</p>
           <br />
           <a className="compras" href="./mercado.html"><button type="submit">QUERO COMPRAR</button></a>
         </div>
         <div className="vendas">
-          <img src="assets/img/Group 8.png" alt="inciar venda" />
+          <img src={Group8} alt="inciar venda" />
           <p className="linha1">Publique ofertas para a safra que deseja vender e obtenha acesso imediato a compradores com crédito verificado.</p>
           <br />
           <a className="compras" href="./mercado.html"><button type="submit">QUERO VENDER</button></a>
@@ -68,7 +80,7 @@ export default function Index() {
       </div>
 
       <div className="banner2">
-        <img src="assets/img/Group 6.png" alt="Preços e Valores" />
+        <img src={Group6} alt="Preços e Valores" />
       </div>
       <div className="tutorial-titulo">
         <h2>Como funciona?</h2>
@@ -92,7 +104,7 @@ export default function Index() {
         </div>
       </div>
       <div className="suporte">
-        <a href="mailto:mercado_verde@mercadoverde.com"><button className="suporte1" type="submit"><img src="assets/img/Group 20.png" alt="SUPORTE" /></button></a>
+        <a href="mailto:mercado_verde@mercadoverde.com"><button className="suporte1" type="submit"><img src={Group20} alt="SUPORTE" /></button></a>
       </div>
       <br />
       <br />
@@ -123,17 +135,17 @@ export default function Index() {
               <li>Termos & Condições</li>
             </ul>
           </div>
-          <img src="assets/img/Line 2.png" alt="" />
+          <img src={Line2} alt="" />
           <div>
             <ul className="lista-footer">
               <li><b>CONTATO</b></li>
               <br />
-              <li><img src="assets/img/Vector1.png" alt="" /> (81) 99999-9999</li>
-              <li><img src="assets/img/Vector2.png" alt="" /> mercado_verde@mercadoverde.com</li>
+              <li><img src={Vector1} alt="" /> (81) 99999-9999</li>
+              <li><img src={Vector2} alt="" /> mercado_verde@mercadoverde.com</li>
             </ul>
           </div>
           <div>
-            <img className="lista-footer" src="assets/img/Group 19.png" alt="" />
+            <img className="lista-footer" src={Group19} alt="" />
           </div>
         </div>
       </footer>
