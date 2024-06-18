@@ -1,8 +1,49 @@
-import React from 'react';
-import '../assets/css/login.css'
+import React, { useState } from 'react';
+import '../assets/css/login.css';
 import { Link } from 'react-router-dom';
+import { database } from '../firebaseConfig'; // Importando a configuração do Firebase
+import { ref, set } from "firebase/database";
 
 const App = () => {
+  const [formData, setFormData] = useState({
+    fullname: '',
+    email: '',
+    password: '',
+    address: '',
+    complement: '',
+    city: '',
+    state: '',
+    cep: '',
+    iwanttosell: false,
+    iwanttobuy: false
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { email, ...userData } = formData;
+    const username = email.split('@')[0];
+
+    // Inclui o email completo no userData
+    const userDataWithEmail = { ...userData, email };
+
+    set(ref(database, 'users/' + username), userDataWithEmail)
+      .then(() => {
+        alert('Usuário cadastrado com sucesso!');
+      })
+      .catch((error) => {
+        console.error("Erro ao cadastrar usuário: ", error);
+      });
+  };
+
   return (
     <div>
       <header className="header-bg">
@@ -10,7 +51,7 @@ const App = () => {
           <Link to='/'><img src="assets/img/Group 1.png" alt="Mercado Verde" /></Link>
           <nav aria-label="primaria">
             <ul className="header-menu">
-            <li><Link to="/">Home</Link></li>
+              <li><Link to="/">Home</Link></li>
               <li><Link to="/mercado">Mercado</Link></li>
               <li><Link to="/conta">Minha conta</Link></li>
               <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
@@ -44,56 +85,60 @@ const App = () => {
         <img src="assets/img/Line 2.png" alt="" />
         <div className="cadastro2">
           <h1>QUERO ME CADASTRAR!</h1>
-          <form className="cadastro2">
+          <form className="cadastro2" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group col-md-6">
+                <label htmlFor="inputName">Nome Completo</label>
+                <input type="text" className="form-control" id="inputName" name="fullname" placeholder="Nome Completo" onChange={handleChange} />
+              </div>
+              <div className="form-group col-md-6">
                 <label htmlFor="inputEmail4">Email</label>
-                <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
+                <input type="email" className="form-control" id="inputEmail4" name="email" placeholder="Email" onChange={handleChange} />
               </div>
               <div className="form-group col-md-6">
                 <label htmlFor="inputPassword4">Senha</label>
-                <input type="password" className="form-control" id="inputPassword4" placeholder="Senha" />
+                <input type="password" className="form-control" id="inputPassword4" name="password" placeholder="Senha" onChange={handleChange} />
               </div>
             </div>
             <div className="form-group">
               <label htmlFor="inputAddress">Endereço</label>
-              <input type="text" className="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0" />
+              <input type="text" className="form-control" id="inputAddress" name="address" placeholder="Rua dos Bobos, nº 0" onChange={handleChange} />
             </div>
             <div className="form-group">
               <label htmlFor="inputAddress2">Complemento</label>
-              <input type="text" className="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc." />
+              <input type="text" className="form-control" id="inputAddress2" name="complement" placeholder="Apartamento, hotel, casa, etc." onChange={handleChange} />
             </div>
             <div className="form-row">
               <div className="form-group col-md-6">
                 <label htmlFor="inputCity">Cidade</label>
-                <input type="text" className="form-control" id="inputCity" />
+                <input type="text" className="form-control" id="inputCity" name="city" onChange={handleChange} />
               </div>
               <div className="form-group col-md-4">
                 <label htmlFor="inputEstado">Estado</label>
-                <select id="inputEstado" className="form-control">
-                  <option selected>Escolher...</option>
-                  <option>PE</option>
-                  <option>RN</option>
-                  <option>PB</option>
-                  <option>RJ</option>
-                  <option>SP</option>
-                  <option>CE</option>
-                  <option>BA</option>
+                <select id="inputEstado" className="form-control" name="state" onChange={handleChange}>
+                  <option value="">Escolher...</option>
+                  <option value="PE">PE</option>
+                  <option value="RN">RN</option>
+                  <option value="PB">PB</option>
+                  <option value="RJ">RJ</option>
+                  <option value="SP">SP</option>
+                  <option value="CE">CE</option>
+                  <option value="BA">BA</option>
                 </select>
               </div>
               <div className="form-group col-md-2">
                 <label htmlFor="inputCEP">CEP</label>
-                <input type="text" className="form-control" id="inputCEP" />
+                <input type="text" className="form-control" id="inputCEP" name="cep" onChange={handleChange} />
               </div>
             </div>
             <div className="form-group">
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                <input className="form-check-input" type="checkbox" id="gridCheck1" name="iwanttosell" onChange={handleChange} />
                 <label className="form-check-label" htmlFor="gridCheck1">
                   Eu quero vender
                 </label>
                 <br />
-                <input className="form-check-input" type="checkbox" id="gridCheck2" />
+                <input className="form-check-input" type="checkbox" id="gridCheck2" name="iwanttobuy" onChange={handleChange} />
                 <label className="form-check-label" htmlFor="gridCheck2">
                   Eu quero comprar
                 </label>
