@@ -5,6 +5,11 @@ import { database } from '../firebaseConfig'; // Importando a configuração do 
 import { ref, set } from "firebase/database";
 import  Group1 from "./img/Group 1.png";
 import  Group2 from "./img/Group 2.png";
+import  Vector from "./img/Vector.svg";
+import  Group19 from "./img/Group 19.png";
+import  Vector1 from "./img/Vector1.png";
+import  Vector2 from "./img/Vector2.png";
+import Line2 from "./img/Line 2.png";
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -56,7 +61,7 @@ const App = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/mercado">Mercado</Link></li>
               <li><Link to="/conta">Minha conta</Link></li>
-              <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
+              <li><Link to="/login"><img src={Vector} alt="Entrar" /></Link></li>
               <li><Link to="/pagamento"><img src={Group2} alt="Carrinho de Compra" /></Link></li>
               <li><Link to="/suporte">Suporte</Link></li>
             </ul>
@@ -85,7 +90,7 @@ const App = () => {
             <button type="submit">Entrar</button>
           </form>
         </div>
-        <img src="assets/img/Line 2.png" alt="" />
+        <img src={Line2} alt="" />
         <div className="cadastro2">
           <h1>QUERO ME CADASTRAR!</h1>
           <form className="cadastro2" onSubmit={handleSubmit}>
@@ -156,7 +161,7 @@ const App = () => {
       <div className="suporte">
         <a href="mailto:mercado_verde@mercadoverde.com">
           <button className="suporte1" type="submit">
-            <img src="assets/img/Group 20.png" alt="SUPORTE" />
+            <img src={Group20} alt="SUPORTE" />
           </button>
         </a>
       </div>
@@ -189,17 +194,17 @@ const App = () => {
               <li>Termos & Condições</li>
             </ul>
           </div>
-          <img src="assets/img/Line 2.png" alt="" />
+          <img src={Line2} alt="" />
           <div>
             <ul className="lista-footer">
               <li><b>CONTATO</b></li>
               <br />
-              <li><img src="assets/img/Vector1.png" alt="" /> (81) 99999-9999</li>
-              <li><img src="assets/img/Vector2.png" alt="" /> mercado_verde@mercadoverde.com</li>
+              <li><img src={Vector1} alt="" /> (81) 99999-9999</li>
+              <li><img src={Vector2} alt="" /> mercado_verde@mercadoverde.com</li>
             </ul>
           </div>
           <div>
-            <img className="lista-footer" src="assets/img/Group 19.png" alt="" />
+            <img className="lista-footer" src={Group19} alt="" />
           </div>
         </div>
       </footer>
