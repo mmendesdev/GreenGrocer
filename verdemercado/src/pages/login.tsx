@@ -7,6 +7,7 @@ import  Group1 from "./img/Group 1.png";
 import  Group2 from "./img/Group 2.png";
 import  Vector from "./img/Vector.svg";
 import  Group19 from "./img/Group 19.png";
+import  Group20 from "./img/Group 20.png";
 import  Vector1 from "./img/Vector1.png";
 import  Vector2 from "./img/Vector2.png";
 import Line2 from "./img/Line 2.png";
