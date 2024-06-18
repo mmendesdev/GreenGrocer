@@ -58,6 +58,7 @@ const App = () => {
               <li><Link to="/conta">Minha conta</Link></li>
               <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
               <li><Link to="/pagamento"><img src={Group2} alt="Carrinho de Compra" /></Link></li>
+              <li><Link to="/suporte">Suporte</Link></li>
             </ul>
           </nav>
         </div>

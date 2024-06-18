@@ -14,6 +14,7 @@ const Header = () => {
               <li><Link to="/conta">Minha conta</Link></li>
               <li><Link to="/login"><img src="assets/img/Vector.svg" alt="Entrar" /></Link></li>
               <li><Link to="/pagamento"><img src="assets/img/Group 2.png" alt="Carrinho de Compra" /></Link></li>
+              <li><Link to="/suporte">Suporte</Link></li>
           </ul>
         </nav>
       </div>

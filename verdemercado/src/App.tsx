@@ -4,6 +4,7 @@ import Login from './pages/login'
 import MercadoVerde from './pages/mercado'
 import Pagamento from './pages/pagamento'
 import Conta from './pages/minha_conta'
+import ChatApp from './chat/client/ChatApp'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/mercado' element={<MercadoVerde/>}/>
           <Route path='/conta' element={<Conta/>}/>
+          <Route path='/suporte' element={<ChatApp/>}/> 
       </Routes>
     </BrowserRouter>
     )
