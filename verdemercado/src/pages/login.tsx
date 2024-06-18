@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import '../assets/css/login.css';
 import { Link } from 'react-router-dom';
 import { database } from '../firebaseConfig'; // Importando a configuração do Firebase
-import { ref, set } from "firebase/database";
-import  Group1 from "./img/Group 1.png";
-import  Group2 from "./img/Group 2.png";
-import  Vector from "./img/Vector.svg";
-import  Group19 from "./img/Group 19.png";
-import  Group20 from "./img/Group 20.png";
-import  Vector1 from "./img/Vector1.png";
-import  Vector2 from "./img/Vector2.png";
+import { ref, set, get, child } from "firebase/database";
+import Group1 from "./img/Group 1.png";
+import Group2 from "./img/Group 2.png";
+import Vector from "./img/Vector.svg";
+import Group19 from "./img/Group 19.png";
+import Group20 from "./img/Group 20.png";
+import Vector1 from "./img/Vector1.png";
+import Vector2 from "./img/Vector2.png";
 import Line2 from "./img/Line 2.png";
 
 const App = () => {
@@ -26,11 +26,24 @@ const App = () => {
     iwanttobuy: false
   });
 
+  const [loginData, setLoginData] = useState({
+    loginEmail: '',
+    loginPassword: ''
+  });
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value
+    });
+  };
+
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value
     });
   };
 
@@ -40,7 +53,6 @@ const App = () => {
     const { email, ...userData } = formData;
     const username = email.split('@')[0];
 
-    // Inclui o email completo no userData
     const userDataWithEmail = { ...userData, email };
 
     set(ref(database, 'users/' + username), userDataWithEmail)
@@ -50,6 +62,32 @@ const App = () => {
       .catch((error) => {
         console.error("Erro ao cadastrar usuário: ", error);
       });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const username = loginData.loginEmail.split('@')[0];
+
+    get(child(ref(database), `users/${username}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        console.log("Dados do usuário encontrados: ", userData);
+
+        if (userData.email === loginData.loginEmail && userData.password === loginData.loginPassword) {
+          console.log("Login bem-sucedido!");
+          alert('Login bem-sucedido!');
+        } else {
+          console.log("Email ou senha incorretos!");
+          alert('Email ou senha incorretos!');
+        }
+      } else {
+        console.log("Usuário não encontrado!");
+        alert('Usuário não encontrado!');
+      }
+    }).catch((error) => {
+      console.error("Erro ao buscar usuário: ", error);
+    });
   };
 
   return (
@@ -74,15 +112,15 @@ const App = () => {
       <div className="cadastro">
         <div className="cadastro1">
           <h1>JÁ TENHO CADASTRO!</h1>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Endereço de email</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email" />
+              <label htmlFor="loginEmail">Endereço de email</label>
+              <input type="email" className="form-control" id="loginEmail" name="loginEmail" placeholder="Seu email" onChange={handleLoginChange} />
               <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
             </div>
             <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Senha</label>
-              <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Senha" />
+              <label htmlFor="loginPassword">Senha</label>
+              <input type="password" className="form-control" id="loginPassword" name="loginPassword" placeholder="Senha" onChange={handleLoginChange} />
             </div>
             <div className="form-group form-check">
               <input type="checkbox" className="form-check-input" id="exampleCheck1" />
